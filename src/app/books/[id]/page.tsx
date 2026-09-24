@@ -14,17 +14,15 @@ interface IBookDetail {
 
 const getBooks = async (): Promise<IBook[]> => {
  
+try{
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`, );
 
-     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`);
-
-
-    if (!res.ok) {
-        throw new Error("Failed to fetch books");
-    }
-
-    const data: IBook[] = await res.json();
-
-    return data;
+    const data = await res.json() ; 
+    return data ; 
+}catch(error){
+    console.error('Error fetching books data :' , error) ; 
+    return [] ; 
+}
 };
 
 const BookDetail = async ({ params }: IBookDetail) => {
