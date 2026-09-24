@@ -12,7 +12,7 @@ const ListedBooks = () => {
     const [sortBy, setSortBy] =
         useState<"rating" | "pages" | "year">("rating");
 
-    console.log(readBooks, "readBooks");
+    
 
     const sortedReadBooks = [...readBooks].sort((a, b) => {
         if (sortBy === "rating") {

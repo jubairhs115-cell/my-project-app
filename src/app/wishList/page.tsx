@@ -12,7 +12,7 @@ const WishList = () => {
     const [sortBy, setSortBy] =
         useState<"rating" | "pages" | "year">("rating");
 
-    console.log(wishList, "wishList");
+   
 
     const sortedWishList = [...wishList].sort((a, b) => {
 
